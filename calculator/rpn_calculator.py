@@ -56,6 +56,7 @@ def _modulo(num_one: int, num_two: int) -> int:
     """
     return num_one % num_two
 
+
 """
     Create a mapping between the operations that are allowed to be 
     inputted by the user and their corresponding functions. 
