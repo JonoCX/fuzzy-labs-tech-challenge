@@ -117,7 +117,12 @@ def _calculator(in_expression):
                     "and (+ - * / %) are the only operators allowed.")
                 sys.exit()
     
-    # return the result
+    # in the case where the stack is great than one, then not enough operators were supplied
+    if len(stack) > 1:
+        print('Not enough operators supplied to evaluate expression.')
+        sys.exit()    
+
+    # result the result
     return stack.pop()
 
             

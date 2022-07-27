@@ -270,5 +270,25 @@ class TestInput:
             # assert that the output matches what we would expect
             assert out == "Invalid input given: '2.5'; only whole numbers are accepted.\n"
 
-        # assert that system exits under type of input
+        # assert that system exits
         assert inappropriate_input_exit.type == SystemExit
+
+    
+    def test_that_error_is_shown_if_not_enough_operators(self):
+        """
+            Test that when there aren't enough operators supplied to calculate a result
+            that this is error is shown to the user. For example, 2 3 11 * cannot be fully
+            evaluated because there is no operator to do anything with the 2.
+        """
+        with pytest.raises(SystemExit) as not_enough_operators:
+            # this will trigger the calculation to fail because there is no operator for the 2
+            rpn.main('2 3 11 *')
+
+            # capture the commandline output
+            out, _ = self.capsys.readouterr()
+
+            # assert that the error message matches what we would expect
+            assert out == 'Not enough operators suppplied to evaluate expression.\n'
+
+        # assert that the system exits 
+        assert not_enough_operators.type == SystemExit

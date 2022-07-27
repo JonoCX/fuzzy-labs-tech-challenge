@@ -6,6 +6,8 @@ The program was written using Python 3.8 and the requirements can be installed i
 
 The unit testing suite used is `Pytest` (along with `pytest-cov`). To run the tests (after installing the requirements), execute the following: `pytest tests`; and to get the coverage run: `pytest --cov=calculator tests/`
 
+To use the calculator outside of the testing suite, run: `python calculator/rpn_calculator.py` and type in the expression to be evaluated. Once evaluated, the program will exit.
+
 ###### _How would you implement an infix notation calculator, i.e., ordinary arithmetic expressions such as 1+2, on top of your RPN calculator?_
 
 The calculator would change first by allowing the user to pass an argument at runtime (`--infix`) to switch the program into infix mode. Internally, an additional function would be implemented which converts the infix notation to postfix (RPN), passes the converted expression to the `_calculator` function, and propagates the results back to the user.
